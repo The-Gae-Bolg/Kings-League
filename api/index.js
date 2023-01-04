@@ -3,10 +3,6 @@ import leaderboard from '../db/leaderboard.json';
 
 const app = new Hono();
 
-app.get('/leaderboard', (ctx) => {
-	return ctx.json(leaderboard);
-})
-
 app.get('/', (ctx) => {
 	return ctx.json([
 		{
@@ -14,6 +10,10 @@ app.get('/', (ctx) => {
 			description: "Return the leaderboard"
 		}
 	]);
+})
+
+app.get('/leaderboard', (ctx) => {
+	return ctx.json(leaderboard);
 })
 
 export default app
